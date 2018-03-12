@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX_RESPONSE 1024
 
@@ -51,7 +52,7 @@ void displayMainMenu()
 
     puts("1. Create User");
     puts("2. Login");
-    puts("3. Exit")
+    puts("3. Exit");
     puts("Please select one of the above options: ");
 
 }
