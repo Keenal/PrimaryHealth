@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "menus.h"
+#include "user.h"
 
 #define MAX_RESPONSE 1024
 
@@ -53,6 +54,7 @@ void handleInput(int option)
     {
 
         puts("Creating user...");
+        createUser();
 
     }
     else if (option == 2)

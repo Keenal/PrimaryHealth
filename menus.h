@@ -7,4 +7,6 @@
 
 void displayMainMenu();
 
+void displayCreateUserMenu();
+
 #endif /*MENUS_H_*/

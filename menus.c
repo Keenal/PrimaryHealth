@@ -10,3 +10,10 @@ void displayMainMenu()
     puts("Please select one of the above options: ");
 
 }
+
+void displayCreateUserMenu()
+{
+
+    puts("This is the create user menu. To create a user you will need to specify a unique username and strong password.");
+
+}
