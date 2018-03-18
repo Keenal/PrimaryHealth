@@ -21,13 +21,14 @@ void start()
 
     int ans = 0;
     puts("How might I help you today?");
-    char buffer[MAX_RESPONSE];
+  //  char buffer[MAX_RESPONSE];
     while (1)
     {
 
         displayMainMenu();
-        fgets(buffer, sizeof(buffer), stdin);
-        int result = scanf_s(buffer, "%d", &ans);
+    //    fgets(buffer, sizeof(buffer), stdin);
+		int result = scanf_s("%d", &ans);
+     //   int result = scanf_s(buffer, "%d", &ans);
         if (result > 0)
         {
 
