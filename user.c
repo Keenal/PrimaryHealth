@@ -6,17 +6,25 @@ int createUser()
 {
 
     displayCreateUserMenu();
-    printf("Unique Username (%d Maximum Length):\n", MAXIMUM_USERNAME_LENGTH);
-    char username[MAXIMUM_USERNAME_LENGTH + 2];
-    fgets(username, sizeof(username), stdin);
-    if (strlen(username) > MAXIMUM_USERNAME_LENGTH)
-    {
 
-        puts("Username too long.");
+    char username[32];
 
-    }
-    printf("Username: %s\n", username);
+	printf("Enter unique Username (%d Maximum Length)\n\n", MAXIMUM_USERNAME_LENGTH);
 
-    return 0;
+  	scanf("%s", username);
+
+	if (strlen(username) > MAXIMUM_USERNAME_LENGTH) {
+	
+		puts("Username is too long, try again.");
+		scanf("%s", username);
+	}
+
+
+	printf("You entered %s\n\n", username);
+
+
+	return 0;
+   
+	
 
 }
