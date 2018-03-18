@@ -27,7 +27,7 @@ void start()
 
         displayMainMenu();
         fgets(buffer, sizeof(buffer), stdin);
-        int result = sscanf(buffer, "%d", &ans);
+        int result = scanf_s(buffer, "%d", &ans);
         if (result > 0)
         {
 
