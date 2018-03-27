@@ -14,6 +14,6 @@ void displayMainMenu()
 void displayCreateUserMenu()
 {
 
-    puts("To create a user you will need to specify a unique username and strong password.");
+    puts("To create a user you will need to specify a unique username and strong password.\n");
 
 }
