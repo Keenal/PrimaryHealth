@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "menus.h"
 #include "user.h"
-
+#include "login.h"
 
 void start();
 void handleInput(int);
@@ -58,6 +58,8 @@ void handleInput(int option)
     {
 
         puts("Logging in...");
+	loginUser();
+	
 
     }
     else if (option == 3)

@@ -44,7 +44,7 @@ int createUser()
 	// lets user know which password they have typed
 	printf("Your password is:  %s\n\n", password);
 
-	printf("You have successfully been registered");
+	printf("You have successfully been registered\n\n");
 	return 0;
    
 	
