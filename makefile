@@ -1,16 +1,18 @@
 CFLAGS = -g -Wall
 CC = gcc
 
-objs = main.o user.o
+objs = main.o user.o database.o
 
 all: main
 
-main: main.o user.o
-	$(CC) $(CFLAGS) -o main main.o user.o
+main: $(objs)
+	$(CC) $(CFLAGS) -o main main.o user.o database.o
 
 main.o: main.c
 
 user.o: user.c user.h
+
+database.o: database.c database.h
 
 .PHONY: clean
 clean:

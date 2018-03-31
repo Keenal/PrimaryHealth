@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "user.h"
 
 struct user
@@ -13,10 +16,18 @@ User makeUser()
 {
 
     User newUser = malloc(sizeof(User));
-    newUser->role = "default\0";
+    memset(newUser->role, '\0', sizeof(newUser->role));
+    strncpy(newUser->role, "default", 32);
 
     puts(newUser->role);
 
     return newUser;
+
+}
+
+void printUser(User user)
+{
+
+    puts(user->role);
 
 }

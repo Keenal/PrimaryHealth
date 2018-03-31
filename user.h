@@ -8,4 +8,6 @@ typedef struct user* User;
 
 User makeUser();
 
+void printUser(User user);
+
 #endif /* USER_H_ */
