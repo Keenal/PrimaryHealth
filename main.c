@@ -50,15 +50,7 @@ void handleInput(int option)
     {
 
         puts("You are logged in as a Doctor.\n");
-        Patient newPatient = createPatient("Jones", 1, 10122019, 'M', 60.3, 180.3);
-        Database database = createDatabase();
-
-        addPatient(database, newPatient);
-        printPatients(database);
-
-        freeDatabase(database);
-
-    }
+}
     else if (option == 2)
     {
 
@@ -72,7 +64,37 @@ void handleInput(int option)
 
         puts("You are logged in as an Admin");
 
-    }
+	while(1){
+	puts("1. Create a patient");
+	puts("2. Delete a patient");
+	puts("3. Exit the program");
+
+	int adminOption;
+	scanf("%d", &adminOption);
+
+	if(adminOption == 1){
+	puts("A patient is created with the following info");
+	Patient newPatient = createPatient("Jones", 1, 10122019, 'M', 60.3, 180.3);
+        Database database = createDatabase();
+
+        addPatient(database, newPatient);
+        printPatients(database);
+
+        freeDatabase(database);
+}
+   
+	
+	else if(adminOption == 2){
+	puts("Deleting a patient");
+}
+	else if(adminOption == 3){
+	puts("Exiting the program");
+	exit(0);
+}
+}
+
+}
+
 	else if(option == 4){
 	puts("Exiting the program");
 	exit(0);

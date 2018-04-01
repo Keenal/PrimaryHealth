@@ -8,7 +8,7 @@ void displayMainMenu()
 	puts("1. Doctor");
 	puts("2. Nurse");
 	puts("3. Administrator\n");
-	puts("Or enter 4 to exit the program");
+	puts("Or enter 4 to exit the program\n");
 }
 
 
