@@ -10,7 +10,7 @@ void handleInput(int);
 int main(int argc, char** argv)
 {
 
-    puts("Welcome to the PrimaryHealth application!\n");
+    puts("\nWelcome to the PrimaryHealth application!\n");
     start();
 
 }
@@ -19,7 +19,6 @@ void start()
 {
 
     int ans = 0;
-    puts("How might I help you today?");
     while (1)
     {
 
@@ -72,9 +71,12 @@ void handleInput(int option)
     {
 
         puts("You are logged in as an Admin");
-        exit(0);
 
     }
+	else if(option == 4){
+	puts("Exiting the program");
+	exit(0);
+}
     else
     {
 
