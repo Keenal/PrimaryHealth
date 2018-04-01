@@ -44,6 +44,13 @@ Patient createPatient(const char* name, int id, int dob, char gender, double hei
 
 }
 
+int getPatientID(Patient patient)
+{
+
+    return patient->id;
+
+}
+
 void editPatient(Patient patient)
 {
 

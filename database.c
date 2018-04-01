@@ -39,6 +39,26 @@ void addPatient(Database database, Patient newPatient)
 
 }
 
+Patient findPatient(Database database, int id)
+{
+
+    int i;
+    for (i = 0; i < database->size; i++)
+    {
+
+        if (getPatientID(database->patients[i]) == id)
+        {
+
+            return database->patients[i];
+
+        }
+
+    }
+
+    return NULL;
+
+}
+
 void printPatients(Database database)
 {
 

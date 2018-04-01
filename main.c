@@ -57,7 +57,7 @@ void handleInput(int option)
         addPatient(database, newPatient);
         printPatients(database);
 
-        //freeDatabase(database);
+        freeDatabase(database);
 
     }
     else if (option == 2)

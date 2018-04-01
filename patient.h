@@ -13,6 +13,8 @@ Patient createPatient(const char* name,
     double weight
 );
 
+int getPatientID(Patient patient);
+
 void editPatient();
 
 void printPatient(Patient patient);

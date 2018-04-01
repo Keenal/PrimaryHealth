@@ -9,6 +9,7 @@ typedef struct database* Database;
 
 Database createDatabase();
 void addPatient(Database database, Patient newPatient);
+Patient findPatient(Database database, int id);
 void printPatients(Database database);
 void freeDatabase(Database database);
 
