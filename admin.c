@@ -89,7 +89,7 @@ void makePatient(Database database)
     puts("What is the patient's height? Ex: 60 for some person who is 5 feet tall.");
     double height;
     fgets(buffer, sizeof(buffer), stdin);
-    result = sscanf(buffer, "%lf", &height);
+    result = sscanf(buffer, "%d", &height);
     if (result <= 0)
     {
 
@@ -100,7 +100,7 @@ void makePatient(Database database)
     puts("What is the patient's weight? Ex: 150 for someone who weighs 150lb.");
     double weight;
     fgets(buffer, sizeof(buffer), stdin);
-    result = sscanf(buffer, "%lf", &weight);
+    result = sscanf(buffer, "%d", &weight);
     if (weight <= 0)
     {
 
@@ -122,7 +122,7 @@ void deletingPatient(Database database)
     int id;
 int result;
     fgets(buffer, sizeof(buffer), stdin);
-    result = sscanf(buffer, "%lf", &id);
+    result = sscanf(buffer, "%d", &id);
     // int result = scanf("%d", &id);
     if (result <= 0)
     {
