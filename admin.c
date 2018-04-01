@@ -134,7 +134,6 @@ void deletingPatient(Database database)
     }
 
     Patient patientToFind = findPatient(database, id);
-    deletePatient(database, id);
     if (patientToFind == NULL)
     {
         puts("This patient ID does not match our database");
@@ -142,6 +141,7 @@ void deletingPatient(Database database)
     }
     else
     {
+        deletePatient(database, id);
         puts("Your requested patient has been removed from this database");
     }
 }

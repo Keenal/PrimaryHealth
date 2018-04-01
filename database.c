@@ -78,17 +78,20 @@ void freeDatabase(Database database)
 
 void deletePatient(Database database, int id)
 {
-
     int i;
     for (i = 0; i < database->size - 1; i++)
     {
-
         if (getPatientID(database->patients[i]) == id)
         {
+            free(database->patients[i]);
+            int j;
+            for (j = i; j < database->size - 1; j++)
+            {
+                database->patients[j] = database->patients[j + 1];
+            }
 
-            //int index = patients.indexOf(id);
-            //patients.split(index,1);
-            //  database->patients[i] = database->patients[i + 1];
+            database->size--;
+            break;
         }
     }
 }
