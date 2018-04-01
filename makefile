@@ -1,7 +1,7 @@
 CFLAGS = -g -Wall
 CC = gcc
 
-objs = main.o menus.o patient.o database.o admin.o
+objs = main.o menus.o patient.o database.o admin.o doc.o
 
 all: main
 
@@ -17,6 +17,8 @@ patient.o: patient.c patient.h
 database.o: database.c database.h
 
 admin.o: admin.c admin.h
+
+doc.o: doc.c doc.h
 
 .PHONY: clean
 clean:

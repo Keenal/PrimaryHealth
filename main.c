@@ -4,6 +4,7 @@
 #include "patient.h"
 #include "database.h"
 #include "admin.h"
+#include "doc.h"
 
 void start();
 void handleInput(int, Database);
@@ -54,6 +55,7 @@ void handleInput(int option, Database database)
     {
 
         puts("You are logged in as a Doctor.\n");
+        docMain(database);
     }
     else if (option == 2)
     {
