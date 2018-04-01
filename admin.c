@@ -11,12 +11,14 @@ void adminMain(Database database)
 
         puts("1. Create a patient.");
         puts("2. Delete a patient.");
+//	printf("3. Logout");
         puts("3. Logout.");
 
         int adminOption;
-        fgets(buffer, sizeof(buffer), stdin);
-        int result = sscanf(buffer, "%d", &adminOption);
-        if (result > 0)
+//        fgets(buffer, sizeof(buffer), stdin);
+ //       int result = sscanf(buffer, "%d", &adminOption);
+	int result = scanf("%d", &adminOption);   
+     if (result > 0)
         {
 
             if (adminOption == 1)
@@ -28,8 +30,7 @@ void adminMain(Database database)
             else if (adminOption == 2)
             {
 
-                puts("Deleting a patient");
-
+		deletingPatient(database);
             }
             else if (adminOption == 3)
             {
@@ -130,5 +131,28 @@ void makePatient(Database database)
 
     addPatient(database, newPatient);
     printPatients(database);
+
+}
+
+void deletingPatient(Database database){
+	puts("Please input the id of the patient you would like to search");
+
+        int id;
+        int result = scanf("%d", &id);
+        if(result <= 0){
+        puts("This is not a valid patient id.");
+        return;
+}
+
+        Patient patientToFind = findPatient(database, id);
+        deletePatient(database);
+        if(patientToFind == NULL){
+        puts("This patient ID does not match our database");
+        return;
+}
+else{
+puts("Your requested patient has been removed from this database");
+}
+
 
 }
