@@ -12,12 +12,14 @@ void docMain(Database database)
         puts("1. Edit a patient.");
         puts("2. Search a patient.");
         puts("3. Print all patients.");
-        puts("4. Logout.");
+	printf("4. Logout.\n");
+       // puts("4. Logout.");
 
         int docOption;
-        fgets(buffer, sizeof(buffer), stdin);
-        int result = sscanf(buffer, "%d", &docOption);
-        if (result > 0)
+    //    fgets(buffer, sizeof(buffer), stdin);
+     //   int result = sscanf(buffer,"%d", &docOption);
+	int result = scanf("%d", &docOption);
+	  if (result > 0)
         {
 
             if (docOption == 1)
@@ -29,13 +31,12 @@ void docMain(Database database)
             else if (docOption == 2)
             {
 
-                puts("Searching a patient");
+		findingPatient(database);
 
             }
             else if (docOption == 3)
             {
-
-                puts("Printing all patients");
+		printingAllPatients(database);
 
             }
             else if (docOption == 4)
@@ -65,9 +66,10 @@ void changePatient(Database database)
 
     char buffer[MAX_RESPONSE];
     int id;
-    fgets(buffer, sizeof(buffer), stdin);
-    int result = sscanf(buffer, "%d", &id);
-    if (result <= 0)
+  //  fgets(buffer, sizeof(buffer), stdin);
+  //  int result = sscanf(buffer, "%d", &id);
+	int result = scanf("%d", &id);   
+ 	if (result <= 0)
     {
 
         puts("You did not input a number. You must put a number representing the id of a patient.");
@@ -86,5 +88,33 @@ void changePatient(Database database)
     }
 
     editPatient(patientToChange);
+
+}
+
+void findingPatient(Database database){
+	puts("Please input the id of the patient you would like to search");
+
+	int id;
+	int result = scanf("%d", &id);
+	if(result <= 0){
+	puts("This is not a valid patient id.");
+	return;
+}
+
+	Patient patientToFind = findPatient(database, id);
+	printPatients(database);	
+	if(patientToFind == NULL){
+	puts("This patient ID does not match our database");
+	return;
+}	
+
+
+}
+
+void printingAllPatients(Database database){
+	puts("Printing all patients");
+	
+	printPatients(database);
+
 
 }

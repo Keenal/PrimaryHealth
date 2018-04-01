@@ -54,7 +54,7 @@ void handleInput(int option, Database database)
     if (option == 1)
     {
 
-        puts("You are logged in as a Doctor.\n");
+        puts("You are logged in as a Doctor.");
         docMain(database);
     }
     else if (option == 2)
