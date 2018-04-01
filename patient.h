@@ -13,8 +13,8 @@ Patient createPatient(const char* name,
     double weight
 );
 
-Patient searchPatient(int);
-
 void editPatient();
+
+void printPatient(Patient patient);
 
 #endif /* PATIENT_H_ */

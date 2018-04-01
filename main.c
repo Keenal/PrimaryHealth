@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "menus.h"
+#include "patient.h"
+#include "database.h"
 
 void start();
 void handleInput(int);
@@ -49,6 +51,13 @@ void handleInput(int option)
     {
 
         puts("You are logged in as a Doctor.\n");
+        Patient newPatient = createPatient("Jones", 1, 10122019, 'M', 60.3, 180.3);
+        Database database = createDatabase();
+
+        addPatient(database, newPatient);
+        printPatients(database);
+
+        //freeDatabase(database);
 
     }
     else if (option == 2)
