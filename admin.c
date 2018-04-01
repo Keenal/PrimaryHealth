@@ -101,7 +101,7 @@ void makePatient(Database database)
     double weight;
     fgets(buffer, sizeof(buffer), stdin);
     result = sscanf(buffer, "%lf", &weight);
-    if (result <= 0)
+    if (weight <= 0)
     {
 
         puts("You did not input a number. You must put a number representing the patient's weight. Ex: 150 for someone who weights 150lb.");
@@ -120,8 +120,9 @@ void deletingPatient(Database database)
 
     char buffer[MAX_RESPONSE];
     int id;
+int result;
     fgets(buffer, sizeof(buffer), stdin);
-    int result = sscanf(buffer, "%lf", &id);
+    result = sscanf(buffer, "%lf", &id);
     // int result = scanf("%d", &id);
     if (result <= 0)
     {

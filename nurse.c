@@ -7,6 +7,7 @@ void nurseMain(Database database)
 	while (1)
 	{
 		puts("1. Search a patient");
+		puts("2. Go back");
 
 		int nurseOption;
 		int result = scanf("%d", &nurseOption);
@@ -18,6 +19,10 @@ void nurseMain(Database database)
 			{
 
 				findingPatient(database);
+			}
+			if(nurseOption == 2){
+				puts("Exiting out");
+				return 0;
 			}
 		}
 		else
