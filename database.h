@@ -12,5 +12,6 @@ void addPatient(Database database, Patient newPatient);
 Patient findPatient(Database database, int id);
 void printPatients(Database database);
 void freeDatabase(Database database);
+void deletePatient(Database database, int id);
 
 #endif /* USER_H_ */

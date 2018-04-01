@@ -20,6 +20,7 @@ admin.o: admin.c admin.h
 
 doc.o: doc.c doc.h
 
+
 .PHONY: clean
 clean:
 	rm main $(objs)

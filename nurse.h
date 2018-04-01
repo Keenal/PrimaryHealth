@@ -4,10 +4,9 @@
 #include "database.h"
 #include "patient.h"
 
-#define MAX_RESPONSE 1024
 
-void docMain(Database database);
-void changePatient(Database database);
+void nurseMain(Database database);
+void findingPatient(Database database);
 
-#endif /* doc_H_ */
+#endif /* nurse_H_ */
 ~                     
