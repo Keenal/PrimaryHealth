@@ -3,9 +3,10 @@
 #include "menus.h"
 #include "patient.h"
 #include "database.h"
+#include "admin.h"
 
 void start();
-void handleInput(int);
+void handleInput(int, Database);
 
 int main(int argc, char** argv)
 {
@@ -18,6 +19,8 @@ int main(int argc, char** argv)
 void start()
 {
 
+    Database database = createDatabase();
+
     int ans = 0;
     while (1)
     {
@@ -28,7 +31,7 @@ void start()
         {
 
             printf("User inputted: %d\n", ans);
-            handleInput(ans);
+            handleInput(ans, database);
 
         }
         else
@@ -40,17 +43,18 @@ void start()
 
     }
 
+    freeDatabase(database);
 
 }
 
-void handleInput(int option)
+void handleInput(int option, Database database)
 {
 
     if (option == 1)
     {
 
         puts("You are logged in as a Doctor.\n");
-}
+    }
     else if (option == 2)
     {
 
@@ -62,43 +66,14 @@ void handleInput(int option)
     else if (option == 3)
     {
 
-        puts("You are logged in as an Admin");
+        puts("You are logged in as an Admin.");
+        adminMain(database);
 
-	while(1){
-	puts("1. Create a patient");
-	puts("2. Delete a patient");
-	puts("3. Exit the program");
-
-	int adminOption;
-	scanf("%d", &adminOption);
-
-	if(adminOption == 1){
-	puts("A patient is created with the following info");
-	Patient newPatient = createPatient("Jones", 1, 10122019, 'M', 60.3, 180.3);
-        Database database = createDatabase();
-
-        addPatient(database, newPatient);
-        printPatients(database);
-
-        freeDatabase(database);
-}
-   
-	
-	else if(adminOption == 2){
-	puts("Deleting a patient");
-}
-	else if(adminOption == 3){
-	puts("Exiting the program");
-	exit(0);
-}
-}
-
-}
-
+    }
 	else if(option == 4){
-	puts("Exiting the program");
-	exit(0);
-}
+	    puts("Exiting the program");
+	    exit(0);
+    }
     else
     {
 
