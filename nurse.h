@@ -6,7 +6,7 @@
 
 
 void nurseMain(Database database);
-void findingPatient(Database database);
+void findingPatientNurse(Database database);
 
 #endif /* nurse_H_ */
-~                     
+                     

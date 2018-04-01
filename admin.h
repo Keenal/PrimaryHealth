@@ -8,5 +8,6 @@
 
 void adminMain(Database database);
 void makePatient(Database database);
+void deletingPatient(Database database);
 
 #endif /* ADMIN_H_ */

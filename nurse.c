@@ -25,7 +25,7 @@ void nurseMain(Database database){
 
 }
 
-void findingPatient(Database database){
+void findingPatientNurse(Database database){
         puts("Please input the id of the patient you would like to search");
 
         int id;

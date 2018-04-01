@@ -97,16 +97,12 @@ int i;
         if (getPatientID(database->patients[i]) == id)
         {
 
-		int index = patients.indexOf(id);
-		patients.split(index,1);
+		//int index = patients.indexOf(id);
+		//patients.split(index,1);
           //  database->patients[i] = database->patients[i + 1];
 
         }
 
     }
-
-    return NULL;
-
-
 
 }
