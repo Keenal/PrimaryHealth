@@ -1,6 +1,5 @@
 #include "menus.h"
 
-
 void displayMainMenu()
 {
 
@@ -10,5 +9,3 @@ void displayMainMenu()
 	puts("3. Administrator\n");
 	puts("Or enter 4 to exit the program\n");
 }
-
-

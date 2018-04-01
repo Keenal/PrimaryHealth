@@ -7,7 +7,6 @@ struct database
 
     Patient patients[MAX_PATIENTS_SIZE];
     int size;
-
 };
 
 Database createDatabase()
@@ -17,7 +16,6 @@ Database createDatabase()
     database->size = 0;
 
     return database;
-
 }
 
 void addPatient(Database database, Patient newPatient)
@@ -28,15 +26,12 @@ void addPatient(Database database, Patient newPatient)
 
         database->patients[database->size] = newPatient;
         database->size++;
-
     }
     else
     {
 
         puts("Maximum number of patients reached. Unable to add new patient");
-
     }
-
 }
 
 Patient findPatient(Database database, int id)
@@ -50,13 +45,10 @@ Patient findPatient(Database database, int id)
         {
 
             return database->patients[i];
-
         }
-
     }
 
     return NULL;
-
 }
 
 void printPatients(Database database)
@@ -68,9 +60,7 @@ void printPatients(Database database)
 
         printPatient(database->patients[i]);
         puts("");
-
     }
-
 }
 
 void freeDatabase(Database database)
@@ -81,28 +71,24 @@ void freeDatabase(Database database)
     {
 
         free(database->patients[i]);
-
     }
 
     free(database);
-
 }
 
-void deletePatient(Database database, int id){
+void deletePatient(Database database, int id)
+{
 
-int i;
+    int i;
     for (i = 0; i < database->size - 1; i++)
     {
 
         if (getPatientID(database->patients[i]) == id)
         {
 
-		//int index = patients.indexOf(id);
-		//patients.split(index,1);
-          //  database->patients[i] = database->patients[i + 1];
-
+            //int index = patients.indexOf(id);
+            //patients.split(index,1);
+            //  database->patients[i] = database->patients[i + 1];
         }
-
     }
-
 }

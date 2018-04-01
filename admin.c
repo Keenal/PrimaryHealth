@@ -6,50 +6,44 @@ void adminMain(Database database)
 {
 
     char buffer[MAX_RESPONSE];
-    while(1)
+    while (1)
     {
 
         puts("1. Create a patient.");
         puts("2. Delete a patient.");
-//	printf("3. Logout");
+        //	printf("3. Logout");
         puts("3. Logout.");
 
         int adminOption;
-//        fgets(buffer, sizeof(buffer), stdin);
- //       int result = sscanf(buffer, "%d", &adminOption);
-	int result = scanf("%d", &adminOption);   
-     if (result > 0)
+        //        fgets(buffer, sizeof(buffer), stdin);
+        //       int result = sscanf(buffer, "%d", &adminOption);
+        int result = scanf("%d", &adminOption);
+        if (result > 0)
         {
 
             if (adminOption == 1)
             {
 
                 makePatient(database);
-
             }
             else if (adminOption == 2)
             {
 
-		deletingPatient(database);
+                deletingPatient(database);
             }
             else if (adminOption == 3)
             {
 
                 puts("Logging out");
                 break;
-
             }
-
         }
         else
         {
 
             puts("You did not input a number. You must put a number representing one of the options. Ex: For option 1 you would type \"1\"");
-
         }
-
     }
-
 }
 
 void makePatient(Database database)
@@ -63,7 +57,6 @@ void makePatient(Database database)
 
         puts("You did not enter a valid patient name. Patient names must be greater than 0 and less than 32 characters, please try again.");
         return;
-
     }
 
     puts("What is the patient's id?");
@@ -76,7 +69,6 @@ void makePatient(Database database)
 
         puts("You did not input a number. You must put a number representing a unique id for the patient");
         return;
-
     }
 
     puts("What is the patient's date of birth? Ex: 01161997 represents January 16th, 1997.");
@@ -88,7 +80,6 @@ void makePatient(Database database)
 
         puts("You did not input a number. You must put a number representing the patients date of birth. Ex: 01161997 represents January 16th, 1997.");
         return;
-
     }
 
     puts("What is the patient's gender? Ex: M for male or F for female.");
@@ -100,7 +91,6 @@ void makePatient(Database database)
 
         puts("You did not input a character. You must put a character representing a unique id for the patient");
         return;
-
     }
 
     puts("What is the patient's height? Ex: 60 for some person who is 5 feet tall.");
@@ -112,7 +102,6 @@ void makePatient(Database database)
 
         puts("You did not input a number. You must put a number representing the patient's height. Ex: 60 for some person who is 5 feet tall.");
         return;
-
     }
 
     puts("What is the patient's weight? Ex: 150 for someone who weighs 150lb.");
@@ -124,35 +113,35 @@ void makePatient(Database database)
 
         puts("You did not input a number. You must put a number representing the patient's weight. Ex: 150 for someone who weights 150lb.");
         return;
-
     }
 
     Patient newPatient = createPatient(name, id, dob, gender, height, weight);
 
     addPatient(database, newPatient);
     printPatients(database);
-
 }
 
-void deletingPatient(Database database){
-	puts("Please input the id of the patient you would like to search");
+void deletingPatient(Database database)
+{
+    puts("Please input the id of the patient you would like to search");
 
-        int id;
-        int result = scanf("%d", &id);
-        if(result <= 0){
+    int id;
+    int result = scanf("%d", &id);
+    if (result <= 0)
+    {
         puts("This is not a valid patient id.");
         return;
-}
+    }
 
-        Patient patientToFind = findPatient(database, id);
-        deletePatient(database, id);
-        if(patientToFind == NULL){
+    Patient patientToFind = findPatient(database, id);
+    deletePatient(database, id);
+    if (patientToFind == NULL)
+    {
         puts("This patient ID does not match our database");
         return;
-}
-else{
-puts("Your requested patient has been removed from this database");
-}
-
-
+    }
+    else
+    {
+        puts("Your requested patient has been removed from this database");
+    }
 }

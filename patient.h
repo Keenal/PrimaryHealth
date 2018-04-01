@@ -3,15 +3,14 @@
 
 #define MAX_NAME_SIZE 32
 
-typedef struct patient* Patient;
+typedef struct patient *Patient;
 
-Patient createPatient(const char* name,
-    int id,
-    int dob,
-    char gender,
-    double height,
-    double weight
-);
+Patient createPatient(const char *name,
+                      int id,
+                      int dob,
+                      char gender,
+                      double height,
+                      double weight);
 
 int getPatientID(Patient patient);
 
