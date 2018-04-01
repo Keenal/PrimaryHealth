@@ -4,43 +4,36 @@
 
 void adminMain(Database database)
 {
-
     char buffer[MAX_RESPONSE];
     while (1)
     {
-
         puts("1. Create a patient.");
         puts("2. Delete a patient.");
         //	printf("3. Logout");
         puts("3. Logout.");
 
         int adminOption;
-        //        fgets(buffer, sizeof(buffer), stdin);
-        //       int result = sscanf(buffer, "%d", &adminOption);
-        int result = scanf("%d", &adminOption);
+        fgets(buffer, sizeof(buffer), stdin);
+        int result = sscanf(buffer, "%d", &adminOption);
+        //int result = scanf("%d", &adminOption);
         if (result > 0)
         {
-
             if (adminOption == 1)
             {
-
                 makePatient(database);
             }
             else if (adminOption == 2)
             {
-
                 deletingPatient(database);
             }
             else if (adminOption == 3)
             {
-
                 puts("Logging out");
                 break;
             }
         }
         else
         {
-
             puts("You did not input a number. You must put a number representing one of the options. Ex: For option 1 you would type \"1\"");
         }
     }
@@ -125,8 +118,11 @@ void deletingPatient(Database database)
 {
     puts("Please input the id of the patient you would like to search");
 
+    char buffer[MAX_RESPONSE];
     int id;
-    int result = scanf("%d", &id);
+    fgets(buffer, sizeof(buffer), stdin);
+    int result = sscanf(buffer, "%lf", &id);
+    // int result = scanf("%d", &id);
     if (result <= 0)
     {
         puts("This is not a valid patient id.");
