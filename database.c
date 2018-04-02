@@ -13,6 +13,7 @@ Database createDatabase()
 {
 
     Database database = malloc(sizeof(struct database));
+    if (database == NULL) return NULL;
     database->size = 0;
 
     return database;
@@ -81,7 +82,7 @@ void deletePatient(Database database, int id)
     int i;
     for (i = 0; i < database->size - 1; i++)
     {
-        if (getPatientID(database->patients[i]) == id)
+        if (getPatientID(database->patients[i]) == id && database->patients[i] != NULL)
         {
             free(database->patients[i]);
             int j;

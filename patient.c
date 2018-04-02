@@ -18,6 +18,7 @@ Patient createPatient(const char *name, int id, int dob, char gender, double hei
 {
 
     Patient newPatient = malloc(sizeof(struct patient));
+    if (newPatient == NULL) return NULL;
     memset(newPatient->name, '\0', sizeof(newPatient->name));
     if (strlen(name) < MAX_NAME_SIZE - 1)
     {
