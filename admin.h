@@ -4,8 +4,6 @@
 #include "database.h"
 #include "patient.h"
 
-#define MAX_RESPONSE 1024
-
 void adminMain(Database database);
 void makePatient(Database database);
 void deletingPatient(Database database);

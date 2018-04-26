@@ -1,144 +1,123 @@
 #include <stdio.h>
 #include <string.h>
 #include "admin.h"
+#include "helpers.h"
 
-void adminMain(Database database)
-{
-    char buffer[MAX_RESPONSE];
-    while (1)
-    {
-        puts("1. Create a patient.");
-        puts("2. Delete a patient.");
-        //	printf("3. Logout");
-        puts("3. Logout.");
+void adminMain(Database mockdatabase) {
 
-        int adminOption;
-        fgets(buffer, sizeof(buffer), stdin);
-        int result = sscanf(buffer, "%d", &adminOption);
-        //int result = scanf("%d", &adminOption);
-        if (result > 0)
-        {
-            if (adminOption == 1)
-            {
-                makePatient(database);
-            }
-            else if (adminOption == 2)
-            {
-                deletingPatient(database);
-            }
-            else if (adminOption == 3)
-            {
-                puts("Logging out");
+    int dummyint;
+    long result;
+    while (1) {
+        dummyint = puts("1. Create a patient.");
+        dummyint = puts("2. Delete a patient.");
+        dummyint = puts("3. Logout.");
+        if (dummyint){}
+
+        result = getNumericResponse();
+        if (result > 0) {
+            if (result == 1) {
+                makePatient(mockdatabase);
+            } else if (result == 2) {
+                deletingPatient(mockdatabase);
+            } else if (result == 3) {
+                dummyint = puts("Logging out");
                 break;
             }
-        }
-        else
-        {
-            puts("You did not input a number. You must put a number representing one of the options. Ex: For option 1 you would type \"1\"");
+        } else {
+            dummyint = puts("You must put a number representing one of the options. Ex: For option 1 you would type \"1\"");
         }
     }
 }
 
-void makePatient(Database database)
-{
+void makePatient(Database mockdatabase) {
 
-    puts("What is the patient's name?");
+    int dummyint;
+    int result = 0;
+    char * dummycharptr;
+
+    dummyint = puts("What is the patient's name?");
+    if (dummyint) {}
     char name[MAX_NAME_SIZE];
-    fgets(name, sizeof(name), stdin);
-    if (strlen(name) <= 0)
-    {
-
-        puts("You did not enter a valid patient name. Patient names must be greater than 0 and less than 32 characters, please try again.");
+    dummycharptr = fgets(name, sizeof(name), stdin);
+    if (dummycharptr){}
+    if (strlen(name) <= 0) {
+        dummyint = puts(
+                "You did not enter a valid patient name. Patient names must be greater than 0 and less than 32 characters, please try again.");
         return;
     }
 
-    puts("What is the patient's id?");
-    int id;
-    char buffer[MAX_RESPONSE];
-    fgets(buffer, sizeof(buffer), stdin);
-    int result = sscanf(buffer, "%d", &id);
-    if (result <= 0)
-    {
-
-        puts("You did not input a number. You must put a number representing a unique id for the patient");
+    result = puts("What is the patient's id?");
+    long id;
+    id = getNumericResponse();
+    if (result == 0) {
+        dummyint = puts("You must put a number representing a unique id for the patient");
         return;
     }
 
-    puts("What is the patient's date of birth? Ex: 01161997 represents January 16th, 1997.");
+    dummyint = puts("What is the patient's date of birth? Ex: 01161997 represents January 16th, 1997.");
     int dob;
-    fgets(buffer, sizeof(buffer), stdin);
-    result = sscanf(buffer, "%d", &dob);
-    if (result <= 0)
-    {
-
-        puts("You did not input a number. You must put a number representing the patients date of birth. Ex: 01161997 represents January 16th, 1997.");
+    dob = getNumericResponse();
+    if (dob == 0) {
+        dummyint = puts("You did not input a number. You must put a number representing the patients date of birth. Ex: 01161997 represents January 16th, 1997.");
         return;
     }
 
-    puts("What is the patient's gender? Ex: M for male or F for female.");
+    dummyint = puts("What is the patient's gender? Ex: M for male or F for female.");
     char gender;
-    fgets(buffer, sizeof(buffer), stdin);
-    result = sscanf(buffer, "%c", &gender);
-    if (result <= 0)
-    {
-
-        puts("You did not input a character. You must put a character representing a unique id for the patient");
-        return;
-    }
-
-    puts("What is the patient's height? Ex: 60 for some person who is 5 feet tall.");
-    double height;
-    fgets(buffer, sizeof(buffer), stdin);
-    result = sscanf(buffer, "%d", &height);
-    if (result <= 0)
-    {
-
-        puts("You did not input a number. You must put a number representing the patient's height. Ex: 60 for some person who is 5 feet tall.");
-        return;
-    }
-
-    puts("What is the patient's weight? Ex: 150 for someone who weighs 150lb.");
-    double weight;
-    fgets(buffer, sizeof(buffer), stdin);
-    result = sscanf(buffer, "%d", &weight);
-    if (weight <= 0)
-    {
-
-        puts("You did not input a number. You must put a number representing the patient's weight. Ex: 150 for someone who weights 150lb.");
-        return;
-    }
-
-    Patient newPatient = createPatient(name, id, dob, gender, height, weight);
-
-    addPatient(database, newPatient);
-    printPatients(database);
-}
-
-void deletingPatient(Database database)
-{
-    puts("Please input the id of the patient you would like to search");
-
     char buffer[MAX_RESPONSE];
-    int id;
-int result;
-    fgets(buffer, sizeof(buffer), stdin);
-    result = sscanf(buffer, "%d", &id);
-    // int result = scanf("%d", &id);
-    if (result <= 0)
-    {
-        puts("This is not a valid patient id.");
+    dummycharptr = fgets(buffer, sizeof(buffer), stdin);
+    result = sscanf(buffer, "%c", &gender);
+    if (result <= 0) {
+        dummyint = puts(
+                "You did not input a character. You must put a character representing a unique id for the patient");
         return;
     }
 
-    Patient patientToFind = findPatient(database, id);
-    if (patientToFind == NULL)
-    {
-        puts("This patient ID does not match our database");
+    dummyint = puts("What is the patient's height? Ex: 60 for some person who is 5 feet tall.");
+    double height;
+    height = (double)getNumericResponse();
+    if (result == 0) {
+        dummyint = puts(
+                "You did not input a number. You must put a number representing the patient's height. Ex: 60 for some person who is 5 feet tall.");
         return;
     }
-    else
-    {
-        deletePatient(database, id);
-        puts("Your requested patient has been removed from this database");
+
+    dummyint = puts("What is the patient's weight? Ex: 150 for someone who weighs 150lb.");
+    double weight;
+    weight = (double)getNumericResponse();
+    if (weight == 0) {
+        dummyint = puts(
+                "You must put a number representing the patient's weight. Ex: 150 for someone who weights 150lb.");
+        return;
+    }
+
+    Patient newPatient;
+    newPatient = createPatient(name, id, dob, gender, height, weight);
+    addPatient(mockdatabase, newPatient);
+    printPatients(mockdatabase);
+}
+
+void deletingPatient(Database mockdatabase) {
+
+    int dummyint;
+    dummyint = puts("Please input the id of the patient you would like to search");
+    if (dummyint){}
+
+    int id;
+    id = getNumericResponse();
+    if (id == 0) {
+        dummyint = puts("This is not a valid patient id.");
+        return;
+    }
+
+    Patient patientToFind;
+    patientToFind = findPatient(mockdatabase, id);
+    if (patientToFind == NULL) {
+        dummyint = puts("This patient ID does not match our database");
+        return;
+    } else {
+        deletePatient(mockdatabase, id);
+        dummyint = puts("Your requested patient has been removed from this database");
     }
 }
+
